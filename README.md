@@ -16,3 +16,6 @@ https://kasambuli.github.io/Quotes/
 
 ## MIT License
 Copyright (c) [2018] 
+
+
+ng build --prod --base-href="https://amwata-albert.github.io/Angular_project/"
