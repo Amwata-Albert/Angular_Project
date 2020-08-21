@@ -12,10 +12,10 @@ The website layout has been created using angular, HTML and the styling with css
 ## Known bugs
 no known bugs
 ## Live Site
-https://kasambuli.github.io/Quotes/
+https://amwata-albert.github.io/Angular_project/
 
 ## MIT License
-Copyright (c) [2018] 
+Copyright (c) [2020] 
 
 
-ng build --prod --base-href="https://amwata-albert.github.io/Angular_project/"
+<!-- ng build --prod --base-href="https://amwata-albert.github.io/Angular_project/" -->

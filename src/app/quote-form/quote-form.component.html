@@ -1,38 +1,39 @@
 <div class="container-fluid">
 
-  <form (submit)="onSubmit(quote.value)">
+  <form (submit)="onSubmit(quotes.values)">
     <div>
-      <label for="name">Write Quote Here!:</label>
+      <!-- <label for="name">Write Quote Here!:</label> -->
       <br>
-      <textarea rows="15" cols="50" type="text" #quote></textarea>
+      <textarea rows="15" cols="50" type="text"  name="quotes" [(ngModel)]="quotes" placeholder="Write Quote Here"></textarea>
     </div>
 
     <div class="form-group">
 
-      <label for="author">Author</label>
+      <label for="author">Author :</label>
       <input type="text" [(ngModel)]="author" name="author">
     </div>
     <br>
     <div class="form-group">
 
-      <label for="name">Name</label>
+      <label for="name">Name :</label>
       <input type="text" [(ngModel)]="name" name="name">
     </div>
+    <!-- <label type="text" name="votesup" [(ngModel)]="votesup" value="0"></label> -->
 
   </form>
 
 
-  <p>QUOTE:{{quote}}</p>
+  <p>QUOTE:{{quotes}}</p>
   <p>AUTHOR:{{author}}</p>
   <p>NAME:{{name}}</p>
-  <button (click)="onClick()" type="submit">Submit Quote</button>
+  <button (click)="onClick(quotes)" type="submit">Submit Quote</button>
   <ul>
-    <li *ngFor="let quote of quotes; let i = index">{{i+1}}: {{quote}}
+    <li *ngFor="let quote of quotes; let i = index">{{i+1}}: {{quotes}}
       <app-quote-details></app-quote-details>
       <button (click)="deleteQuote(quote)" type="submit">Delete Quote</button>
 
-      <!-- <button (click)="voteUp()">UpVote {{votesup}}</button>
-      <button (click)="voteDown()">DownVote {{votesdown}}</button> -->
+      <button  (click)="votesup()">UpVote: {{votesup}}</button>
+      <button  (click)="voteDown()">DownVote: {{votesdown}}</button>
     </li>
 
 

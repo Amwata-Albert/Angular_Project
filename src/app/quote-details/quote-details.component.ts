@@ -16,18 +16,23 @@ export class QuoteDetailsComponent implements OnInit {
 
     this.votesup = 0;
     this.votesdown = 0;
+
+
+    function votesup() {
+      this.votesup++;
+    
+    
+    
+    }
+
+    function votesdown(){
+      this.votesdown--;
+    
+    
+    }
+   
+    
   }
-  //   function voteUp(): boolean; {
-  //   this.votesup++;
-  //
-  //
-  //
-  // }
-  // function voteDown(): boolean; {
-  //   this.votesdown--;
-  //
-  //
-  // }
-  //   };
-  // }
-}
+   
+  
+  }

@@ -8,24 +8,33 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class QuoteFormComponent implements OnInit {
   name: string
   quotes: string[]
-  author: string;
+  author: string
+  
 
   constructor() { }
 
   ngOnInit() {
     this.author = ''
     this.name = ''
-    this.quotes = ['love is life', 'context is king'];
+    this.quotes = ['Angular', 'Flask', 'Django']
 
   }
-  onClick() {
-    this.quotes.unshift('quote');
+  onClick(quote) {
+    // return true
+    for (let j = 0; j < this.quotes.length; j++) {
+      this.quotes[j]==quote
+      this.quotes.push("quote "+j++)
 
+      // this.quotes.push(quote)
+      return false
+      
+    }
   }
   onSubmit(quote) {
-    console.log(quote);
-    return false;
-    // this.quotes.push(quote)
+    // return false;
+    this.quotes.push(this.quotes[0])
+    // this.quotes.unshift(quote)
+
   }
   deleteQuote(quote) {
     for (let i = 0; i < this.quotes.length; i++) {
