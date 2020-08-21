@@ -1,10 +1,10 @@
 <div class="container-fluid">
 
-  <form (submit)="onSubmit(quotes.values)">
+  <form (submit)="onSubmit(quote.values)">
     <div>
       <!-- <label for="name">Write Quote Here!:</label> -->
       <br>
-      <textarea rows="15" cols="50" type="text"  name="quotes" [(ngModel)]="quotes" placeholder="Write Quote Here"></textarea>
+      <textarea rows="15" cols="50" type="text"  name="quote" [(ngModel)]="quote" placeholder="Write Quote Here"></textarea>
     </div>
 
     <div class="form-group">
@@ -23,12 +23,12 @@
   </form>
 
 
-  <p>QUOTE:{{quotes}}</p>
+  <p>QUOTE:{{quote}}</p>
   <p>AUTHOR:{{author}}</p>
   <p>NAME:{{name}}</p>
-  <button (click)="onClick(quotes)" type="submit">Submit Quote</button>
+  <button (click)="onClick(quote)" type="submit">Submit Quote</button>
   <ul>
-    <li *ngFor="let quote of quotes; let i = index">{{i+1}}: {{quotes}}
+    <li *ngFor="let quote of quotes; let i = index">{{i+1}}: {{quote}}
       <app-quote-details></app-quote-details>
       <button (click)="deleteQuote(quote)" type="submit">Delete Quote</button>
 

@@ -23,9 +23,7 @@ export class QuoteFormComponent implements OnInit {
     // return true
     for (let j = 0; j < this.quotes.length; j++) {
       this.quotes[j]==quote
-      this.quotes.push("quote "+j++)
-
-      // this.quotes.push(quote)
+      "Quote"+this.quotes.push(quote)
       return false
       
     }
