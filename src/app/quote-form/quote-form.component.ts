@@ -16,7 +16,7 @@ export class QuoteFormComponent implements OnInit {
   ngOnInit() {
     this.author = ''
     this.name = ''
-    this.quotes = ['Angular', 'Flask', 'Django']
+    this.quotes = ['Quote', 'Flask', 'Django']
 
   }
   onClick(quote) {
