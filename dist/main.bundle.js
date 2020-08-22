@@ -170,14 +170,14 @@ var QuoteDetailsComponent = /** @class */ (function () {
 /***/ "./src/app/quote-form/quote-form.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".container-fluid {\n  font-size: 20px;\n}\n\nbutton {\n  background-color: black;\n  color: white;\n  font-size: 15px;\n  border: 1px solid black;\n}\n\nul li{\n  list-style: none;\n  margin-top: 10px;\n  }"
+module.exports = ".container-fluid {\n  font-size: 20px;\n}\n\nbutton {\n  background-color: black;\n  color: white;\n  font-size: 15px;\n  border: 1px solid black;\n}\n\nul li{\n  list-style: none;\n  margin-top: 10px;\n  }\n\nh3{\n    text-align: center;\n    font-weight: bold;\n    font-family: fantasy;\n    margin-top: 2%;\n  }"
 
 /***/ }),
 
 /***/ "./src/app/quote-form/quote-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n\n  <form (submit)=\"onSubmit(quote.value)\">\n    <div>\n      <!-- <label for=\"name\">Write Quote Here!:</label> -->\n      <br>\n      <textarea rows=\"15\" cols=\"50\" type=\"text\"  name=\"quote\" [(ngModel)]=\"quote\" placeholder=\"Write Quote Here\"></textarea>\n    </div>\n\n    <div class=\"form-group\">\n\n      <label for=\"author\">Author :</label>\n      <input type=\"text\" [(ngModel)]=\"author\" name=\"author\">\n    </div>\n    <br>\n    <div class=\"form-group\">\n\n      <label for=\"name\">Name :</label>\n      <input type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n    </div>\n    \n\n  </form>\n\n\n  <p>QUOTE:{{quote}}</p>\n  <p>AUTHOR:{{author}}</p>\n  <p>NAME:{{name}}</p>\n  <button (click)=\"onClick(quotes)\" type=\"submit\">Submit Quote</button>\n  <ul>\n    <li *ngFor=\"let quote of quotes; let i = index\">{{i+1}}: {{quote}}  \n      <app-quote-details></app-quote-details>\n      <button (click)=\"deleteQuote(quote)\" type=\"submit\">Delete Quote</button>\n\n        \n      <button  (click)=\"votesup()\">UpVote: {{votesup}} </button><button style=\"margin-left: 1%;\">0</button>\n      <button  (click)=\"voteDown()\">DownVote: {{votesdown}}</button><button style=\"margin-left: 1%;\">0</button>\n    </li>\n  </ul>"
+module.exports = "<div class=\"container-fluid\">\n\n  <form (submit)=\"onSubmit(quote.value)\">\n    <div>\n      <!-- <label for=\"name\">Write Quote Here!:</label> -->\n      <br>\n      <textarea rows=\"15\" cols=\"50\" type=\"text\"  name=\"quote\" [(ngModel)]=\"quote\" placeholder=\"Write Quote Here\"></textarea>\n    </div>\n\n    <div class=\"form-group\">\n\n      <label for=\"author\">Author :</label>\n      <input type=\"text\" [(ngModel)]=\"author\" name=\"author\">\n    </div>\n    <br>\n    <div class=\"form-group\">\n\n      <label for=\"name\">Name :</label>\n      <input type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n    </div>\n    \n\n  </form>\n\n\n  <p>QUOTE:{{quote}}</p>\n  <p>AUTHOR:{{author}}</p>\n  <p>NAME:{{name}}</p>\n  <button (click)=\"onClick(quotes)\" type=\"submit\">Submit Quote</button>\n  <h3>QUOTES</h3>\n  <ul>\n    <li *ngFor=\"let quote of quotes; let i = index\">{{i+1}}: {{quote}} {{i+1}}\n      <app-quote-details></app-quote-details>\n      <button (click)=\"deleteQuote(quote)\" type=\"submit\">Delete Quote</button>\n\n        \n      <button  (click)=\"votesup()\">UpVote:  </button><button style=\"margin-left: 1%;\">{{voteup}}</button>\n      <button  (click)=\"votesdown()\">DownVote:</button><button style=\"margin-left: 1%;\"> {{votedown}}</button>\n    </li>\n  </ul>"
 
 /***/ }),
 
@@ -199,15 +199,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var QuoteFormComponent = /** @class */ (function () {
     function QuoteFormComponent() {
+        this.voteup = 0;
+        this.votedown = 0;
     }
     QuoteFormComponent.prototype.ngOnInit = function () {
         this.author = '';
         this.name = '';
-        this.quotes = ['Quote', 'Flask', 'Django'];
+        this.quotes = ['Angular'];
     };
     QuoteFormComponent.prototype.onClick = function (quote) {
         // return true
-        for (var j = 0; j < this.quotes.length; j++) {
+        for (var j = -1; j < this.quotes.length; j++) {
             // this.quotes[j]==quote
             this.quotes.push("Quote ");
             return false;
@@ -224,6 +226,19 @@ var QuoteFormComponent = /** @class */ (function () {
                 this.quotes.splice(i, 1);
             }
         }
+    };
+    QuoteFormComponent.prototype.votesup = function (quote) {
+        // for (let k = 0; k < this.quotes.length; k++) {
+        //   if(this.quotes[k]==quote){
+        //     this.quotes.push(quote)
+        this.voteup++;
+        alert("You upvoted the Quote");
+        //   }
+        // }
+    };
+    QuoteFormComponent.prototype.votesdown = function () {
+        this.votedown++;
+        alert("you Downvoted this quote");
     };
     QuoteFormComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({

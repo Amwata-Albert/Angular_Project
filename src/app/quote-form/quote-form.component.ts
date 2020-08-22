@@ -9,6 +9,9 @@ export class QuoteFormComponent implements OnInit {
   name: string
   quotes: string[]
   author: string
+  voteup=0
+  votedown=0
+
   
 
   constructor() { }
@@ -16,12 +19,12 @@ export class QuoteFormComponent implements OnInit {
   ngOnInit() {
     this.author = ''
     this.name = ''
-    this.quotes = ['Quote', 'Flask', 'Django']
+    this.quotes = ['Angular']
 
   }
   onClick(quote) {
     // return true
-    for (let j = 0; j < this.quotes.length; j++) {
+    for (let j = -1; j < this.quotes.length; j++) {
       // this.quotes[j]==quote
       this.quotes.push("Quote ")
       return false
@@ -40,6 +43,20 @@ export class QuoteFormComponent implements OnInit {
         this.quotes.splice(i, 1)
       }
     }
+  }
+  votesup(quote){
+    // for (let k = 0; k < this.quotes.length; k++) {
+    //   if(this.quotes[k]==quote){
+    //     this.quotes.push(quote)
+        this.voteup++
+        alert("You upvoted the Quote")
+    //   }
+    // }
+   
+  }
+  votesdown(){
+    this.votedown++
+    alert("you Downvoted this quote")
   }
 
 }

@@ -27,13 +27,14 @@
   <p>AUTHOR:{{author}}</p>
   <p>NAME:{{name}}</p>
   <button (click)="onClick(quotes)" type="submit">Submit Quote</button>
+  <h3>QUOTES</h3>
   <ul>
-    <li *ngFor="let quote of quotes; let i = index">{{i+1}}: {{quote}}  
+    <li *ngFor="let quote of quotes; let i = index">{{i+1}}: {{quote}} {{i+1}}
       <app-quote-details></app-quote-details>
       <button (click)="deleteQuote(quote)" type="submit">Delete Quote</button>
 
         
-      <button  (click)="votesup()">UpVote: {{votesup}} </button><button style="margin-left: 1%;">0</button>
-      <button  (click)="voteDown()">DownVote: {{votesdown}}</button><button style="margin-left: 1%;">0</button>
+      <button  (click)="votesup()">UpVote:  </button><button style="margin-left: 1%;">{{voteup}}</button>
+      <button  (click)="votesdown()">DownVote:</button><button style="margin-left: 1%;"> {{votedown}}</button>
     </li>
   </ul>
