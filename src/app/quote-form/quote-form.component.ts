@@ -22,15 +22,15 @@ export class QuoteFormComponent implements OnInit {
   onClick(quote) {
     // return true
     for (let j = 0; j < this.quotes.length; j++) {
-      this.quotes[j]==quote
-      "Quote"+this.quotes.push(quote)
+      // this.quotes[j]==quote
+      this.quotes.push(this.quotes[j])
       return false
       
     }
   }
   onSubmit(quote) {
     // return false;
-    this.quotes.push(this.quotes[0])
+    // this.quotes.push(this.quotes[0])
     // this.quotes.unshift(quote)
 
   }

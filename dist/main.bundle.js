@@ -177,7 +177,7 @@ module.exports = ".container-fluid {\n  font-size: 20px;\n}\n\nbutton {\n  backg
 /***/ "./src/app/quote-form/quote-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n\n  <form (submit)=\"onSubmit(quotes.values)\">\n    <div>\n      <!-- <label for=\"name\">Write Quote Here!:</label> -->\n      <br>\n      <textarea rows=\"15\" cols=\"50\" type=\"text\"  name=\"quotes\" [(ngModel)]=\"quotes\" placeholder=\"Write Quote Here\"></textarea>\n    </div>\n\n    <div class=\"form-group\">\n\n      <label for=\"author\">Author :</label>\n      <input type=\"text\" [(ngModel)]=\"author\" name=\"author\">\n    </div>\n    <br>\n    <div class=\"form-group\">\n\n      <label for=\"name\">Name :</label>\n      <input type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n    </div>\n    <!-- <label type=\"text\" name=\"votesup\" [(ngModel)]=\"votesup\" value=\"0\"></label> -->\n\n  </form>\n\n\n  <p>QUOTE:{{quotes}}</p>\n  <p>AUTHOR:{{author}}</p>\n  <p>NAME:{{name}}</p>\n  <button (click)=\"onClick(quotes)\" type=\"submit\">Submit Quote</button>\n  <ul>\n    <li *ngFor=\"let quote of quotes; let i = index\">{{i+1}}: {{quotes}}\n      <app-quote-details></app-quote-details>\n      <button (click)=\"deleteQuote(quote)\" type=\"submit\">Delete Quote</button>\n\n      <button  (click)=\"votesup()\">UpVote: {{votesup}}</button>\n      <button  (click)=\"voteDown()\">DownVote: {{votesdown}}</button>\n    </li>\n\n\n  </ul>"
+module.exports = "<div class=\"container-fluid\">\n\n  <form (submit)=\"onSubmit(quote.value)\">\n    <div>\n      <!-- <label for=\"name\">Write Quote Here!:</label> -->\n      <br>\n      <textarea rows=\"15\" cols=\"50\" type=\"text\"  name=\"quote\" [(ngModel)]=\"quote\" placeholder=\"Write Quote Here\"></textarea>\n    </div>\n\n    <div class=\"form-group\">\n\n      <label for=\"author\">Author :</label>\n      <input type=\"text\" [(ngModel)]=\"author\" name=\"author\">\n    </div>\n    <br>\n    <div class=\"form-group\">\n\n      <label for=\"name\">Name :</label>\n      <input type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n    </div>\n    <!-- <label type=\"text\" name=\"votesup\" [(ngModel)]=\"votesup\" value=\"0\"></label> -->\n\n  </form>\n\n\n  <p>QUOTE:{{quote}}</p>\n  <p>AUTHOR:{{author}}</p>\n  <p>NAME:{{name}}</p>\n  <button (click)=\"onClick(quotes)\" type=\"submit\">Submit Quote</button>\n  <ul>\n    <li *ngFor=\"let quote of quotes; let i = index\">{{i+1}}: {{quote}}\n      <app-quote-details></app-quote-details>\n      <button (click)=\"deleteQuote(quote)\" type=\"submit\">Delete Quote</button>\n\n      <button  (click)=\"votesup()\">UpVote: {{votesup}}</button>\n      <button  (click)=\"voteDown()\">DownVote: {{votesdown}}</button>\n    </li>\n\n\n  </ul>"
 
 /***/ }),
 
@@ -208,14 +208,14 @@ var QuoteFormComponent = /** @class */ (function () {
     QuoteFormComponent.prototype.onClick = function (quote) {
         // return true
         for (var j = 0; j < this.quotes.length; j++) {
-            this.quotes[j] == quote;
-            "Quote" + this.quotes.push(quote);
+            // this.quotes[j]==quote
+            this.quotes.push(this.quotes[j]);
             return false;
         }
     };
     QuoteFormComponent.prototype.onSubmit = function (quote) {
         // return false;
-        this.quotes.push(this.quotes[0]);
+        // this.quotes.push(this.quotes[0])
         // this.quotes.unshift(quote)
     };
     QuoteFormComponent.prototype.deleteQuote = function (quote) {
