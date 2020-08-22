@@ -209,14 +209,14 @@ var QuoteFormComponent = /** @class */ (function () {
         // return true
         for (var j = 0; j < this.quotes.length; j++) {
             // this.quotes[j]==quote
-            this.quotes.push("Quote ");
+            this.quotes.unshift("Quote ");
             return false;
         }
     };
     QuoteFormComponent.prototype.onSubmit = function (quote) {
         // return false;
         // this.quotes.push(this.quotes[0])
-        // this.quotes.unshift(quote)
+        this.quotes.push(quote);
     };
     QuoteFormComponent.prototype.deleteQuote = function (quote) {
         for (var i = 0; i < this.quotes.length; i++) {

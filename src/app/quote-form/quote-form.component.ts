@@ -23,7 +23,7 @@ export class QuoteFormComponent implements OnInit {
     // return true
     for (let j = 0; j < this.quotes.length; j++) {
       // this.quotes[j]==quote
-      this.quotes.push("Quote ")
+      this.quotes.unshift("Quote ")
       return false
       
     }
@@ -31,7 +31,7 @@ export class QuoteFormComponent implements OnInit {
   onSubmit(quote) {
     // return false;
     // this.quotes.push(this.quotes[0])
-    // this.quotes.unshift(quote)
+    this.quotes.push(quote)
 
   }
   deleteQuote(quote) {
