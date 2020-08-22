@@ -18,7 +18,7 @@
       <label for="name">Name :</label>
       <input type="text" [(ngModel)]="name" name="name">
     </div>
-    <!-- <label type="text" name="votesup" [(ngModel)]="votesup" value="0"></label> -->
+    
 
   </form>
 
@@ -28,12 +28,12 @@
   <p>NAME:{{name}}</p>
   <button (click)="onClick(quotes)" type="submit">Submit Quote</button>
   <ul>
-    <li *ngFor="let quote of quotes; let i = index">{{i+1}}: {{quote}}
+    <li *ngFor="let quote of quotes; let i = index">{{i+1}}: {{quote}}  
       <app-quote-details></app-quote-details>
       <button (click)="deleteQuote(quote)" type="submit">Delete Quote</button>
 
-      <button  (click)="votesup()">UpVote: {{votesup}}</button>
-      <button  (click)="voteDown()">DownVote: {{votesdown}}</button>
+      <button  (click)="votesup()">UpVote: {{votesup}} </button><button style="margin-left: 1%;">0</button>
+      <button  (click)="voteDown()">DownVote: {{votesdown}}</button><button style="margin-left: 1%;">0</button>
     </li>
 
 

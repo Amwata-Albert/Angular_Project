@@ -20,7 +20,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "h1 {\n  color:darkslateblue;\n  font-size: 70px;\n  font-family:fantasy;\n}\n\np {\n  font-size: 20px;\n  font-style: oblique;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n}\n\nh3{\n  float: left;\n  margin-right: 80%;\n  font-size: 20px;\n  text-align: left;\n  width: 100%;\n  font-style: italic;\n  font-family: monospace;\n\n}\n\nh4{\n  font-size: 20px;\n  font-style: italic;\n  font-weight: bold   ;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n  border-top: 1px solid;\n  margin-top: 10px;\n  line-height: 100px;\n}"
+module.exports = "h1 {\n  color:darkslateblue;\n  font-size: 70px;\n  font-family:fantasy;\n}\n\np {\n  font-size: 20px;\n  font-style: oblique;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n}\n\nh3{\n  float: left;\n  margin-right: 60%;\n  font-size: 20px;\n  margin-left: 8%;\n  text-align: left;\n  width: 100%;\n  font-style: italic;\n  font-family: monospace;\n\n}\n\nh4{\n  font-size: 20px;\n  font-style: italic;\n  font-weight: bold   ;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n  border-top: 1px solid;\n  margin-top: 10px;\n  line-height: 100px;\n}"
 
 /***/ }),
 
@@ -177,7 +177,7 @@ module.exports = ".container-fluid {\n  font-size: 20px;\n}\n\nbutton {\n  backg
 /***/ "./src/app/quote-form/quote-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n\n  <form (submit)=\"onSubmit(quote.value)\">\n    <div>\n      <!-- <label for=\"name\">Write Quote Here!:</label> -->\n      <br>\n      <textarea rows=\"15\" cols=\"50\" type=\"text\"  name=\"quote\" [(ngModel)]=\"quote\" placeholder=\"Write Quote Here\"></textarea>\n    </div>\n\n    <div class=\"form-group\">\n\n      <label for=\"author\">Author :</label>\n      <input type=\"text\" [(ngModel)]=\"author\" name=\"author\">\n    </div>\n    <br>\n    <div class=\"form-group\">\n\n      <label for=\"name\">Name :</label>\n      <input type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n    </div>\n    <!-- <label type=\"text\" name=\"votesup\" [(ngModel)]=\"votesup\" value=\"0\"></label> -->\n\n  </form>\n\n\n  <p>QUOTE:{{quote}}</p>\n  <p>AUTHOR:{{author}}</p>\n  <p>NAME:{{name}}</p>\n  <button (click)=\"onClick(quotes)\" type=\"submit\">Submit Quote</button>\n  <ul>\n    <li *ngFor=\"let quote of quotes; let i = index\">{{i+1}}: {{quote}}\n      <app-quote-details></app-quote-details>\n      <button (click)=\"deleteQuote(quote)\" type=\"submit\">Delete Quote</button>\n\n      <button  (click)=\"votesup()\">UpVote: {{votesup}}</button>\n      <button  (click)=\"voteDown()\">DownVote: {{votesdown}}</button>\n    </li>\n\n\n  </ul>"
+module.exports = "<div class=\"container-fluid\">\n\n  <form (submit)=\"onSubmit(quote.value)\">\n    <div>\n      <!-- <label for=\"name\">Write Quote Here!:</label> -->\n      <br>\n      <textarea rows=\"15\" cols=\"50\" type=\"text\"  name=\"quote\" [(ngModel)]=\"quote\" placeholder=\"Write Quote Here\"></textarea>\n    </div>\n\n    <div class=\"form-group\">\n\n      <label for=\"author\">Author :</label>\n      <input type=\"text\" [(ngModel)]=\"author\" name=\"author\">\n    </div>\n    <br>\n    <div class=\"form-group\">\n\n      <label for=\"name\">Name :</label>\n      <input type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n    </div>\n    \n\n  </form>\n\n\n  <p>QUOTE:{{quote}}</p>\n  <p>AUTHOR:{{author}}</p>\n  <p>NAME:{{name}}</p>\n  <button (click)=\"onClick(quotes)\" type=\"submit\">Submit Quote</button>\n  <ul>\n    <li *ngFor=\"let quote of quotes; let i = index\">{{i+1}}: {{quote}}  \n      <app-quote-details></app-quote-details>\n      <button (click)=\"deleteQuote(quote)\" type=\"submit\">Delete Quote</button>\n\n      <button  (click)=\"votesup()\">UpVote: {{votesup}} </button><button style=\"margin-left: 1%;\">0</button>\n      <button  (click)=\"voteDown()\">DownVote: {{votesdown}}</button><button style=\"margin-left: 1%;\">0</button>\n    </li>\n\n\n  </ul>"
 
 /***/ }),
 
@@ -209,14 +209,14 @@ var QuoteFormComponent = /** @class */ (function () {
         // return true
         for (var j = 0; j < this.quotes.length; j++) {
             // this.quotes[j]==quote
-            this.quotes.unshift("Quote ");
+            this.quotes.push("Quote ");
             return false;
         }
     };
     QuoteFormComponent.prototype.onSubmit = function (quote) {
         // return false;
         // this.quotes.push(this.quotes[0])
-        this.quotes.push(quote);
+        this.quotes.unshift(quote);
     };
     QuoteFormComponent.prototype.deleteQuote = function (quote) {
         for (var i = 0; i < this.quotes.length; i++) {

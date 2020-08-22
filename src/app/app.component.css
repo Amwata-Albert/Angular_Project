@@ -11,8 +11,9 @@ p {
 }
 h3{
   float: left;
-  margin-right: 80%;
+  margin-right: 60%;
   font-size: 20px;
+  margin-left: 8%;
   text-align: left;
   width: 100%;
   font-style: italic;
