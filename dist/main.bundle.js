@@ -209,7 +209,7 @@ var QuoteFormComponent = /** @class */ (function () {
         // return true
         for (var j = 0; j < this.quotes.length; j++) {
             // this.quotes[j]==quote
-            this.quotes.push(this.quotes[j]);
+            this.quotes.push("Quote ");
             return false;
         }
     };
