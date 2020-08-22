@@ -203,7 +203,7 @@ var QuoteFormComponent = /** @class */ (function () {
     QuoteFormComponent.prototype.ngOnInit = function () {
         this.author = '';
         this.name = '';
-        this.quotes = ['Angular', 'Flask', 'Django'];
+        this.quotes = ['Quote', 'Flask', 'Django'];
     };
     QuoteFormComponent.prototype.onClick = function (quote) {
         // return true
